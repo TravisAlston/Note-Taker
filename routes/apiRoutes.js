@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 module.exports = function(app) {
-    
+
     app.get('/api/notes', function(req, res) {
         fs.readFile('./db/db.json', (err, data) => {
             if(err) throw err;
@@ -44,7 +44,7 @@ module.exports = function(app) {
             dbData = JSON.parse(data);
 
             for(let i = 0; i <dbData.length; i++) {
-                if (dbData[i].id ===Number(deleteNote)) {
+                if (dbData[i].id === Number(deleteNote)) {
                     dbData.splice([i], 1);
                 }
             }
